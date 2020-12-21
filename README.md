@@ -12,3 +12,5 @@ Gereksinimler:
 - https://github.com/esx-community/fivem-ipl
 - https://github.com/ONyambura/mythic_progbar
 - https://github.com/Utinax/reload-skillbar
+
+Kendi yaptığım ve düzenlediğim scriptlerimi paylaştığım discord sunucum: https://discord.gg/kvfWuMj6FN
