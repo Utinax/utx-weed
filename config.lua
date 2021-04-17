@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Weight      = true
+
 Config.DealerBlip  = true
 Config.PedCoords   = { x = 805.6082, y = 2181.599, z = 52.241, h = 245.0 }
 Config.PedHash     = "csb_chin_goon"
