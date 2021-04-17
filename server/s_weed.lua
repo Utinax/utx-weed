@@ -5,10 +5,19 @@ RegisterServerEvent('utx-weed:giveweed')
 AddEventHandler('utx-weed:giveweed', function()
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
-    if xPlayer.canCarryItem('esrar_ham', 1) then
-        xPlayer.addInventoryItem('esrar_ham', 1)
+    local item = xPlayer.getInventoryItem('esrar_ham')
+    if Config.Weight then
+        if xPlayer.canCarryItem('esrar_ham', 1) then
+            xPlayer.addInventoryItem('esrar_ham', 1)
+        else
+            TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+        end
     else
-        TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+        if item.limit ~= -1 and item.count >= item.limit then
+            TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+        else
+            xPlayer.addInventoryItem('esrar_ham', 1)
+        end
     end
 end)
 
@@ -16,13 +25,24 @@ RegisterServerEvent('utx-weed:processweed')
 AddEventHandler('utx-weed:processweed', function()
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
+    local item = xPlayer.getInventoryItem('esrar_islenmis')
     if xPlayer.getInventoryItem('esrar_ham').count >= 1 then
-        if xPlayer.canCarryItem('esrar_islenmis', 1) then
-            xPlayer.removeInventoryItem('esrar_ham', 1)
-            Citizen.Wait(500)
-            xPlayer.addInventoryItem('esrar_islenmis', 1)
+        if Config.Weight then
+            if xPlayer.canCarryItem('esrar_islenmis', 1) then
+                xPlayer.removeInventoryItem('esrar_ham', 1)
+                Citizen.Wait(500)
+                xPlayer.addInventoryItem('esrar_islenmis', 1)
+            else
+                TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+            end
         else
-            TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+            if item.limit ~= -1 and item.count >= item.limit then
+                TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+            else
+                xPlayer.removeInventoryItem('esrar_ham', 1)
+                Citizen.Wait(500)
+                xPlayer.addInventoryItem('esrar_islenmis', 1)
+            end
         end
     else
         TriggerClientEvent('esx:showNotification', src, 'You don\'t have weed leaf!')
@@ -33,13 +53,24 @@ RegisterServerEvent('utx-weed:processweed2')
 AddEventHandler('utx-weed:processweed2', function()
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
+    local item = xPlayer.getInventoryItem('esrar_islenmis2')
     if xPlayer.getInventoryItem('esrar_islenmis').count >= 1 then
-        if xPlayer.canCarryItem('esrar_islenmis2', 1) then
-            xPlayer.removeInventoryItem('esrar_islenmis', 1)
-            Citizen.Wait(500)
-            xPlayer.addInventoryItem('esrar_islenmis2', 1)
+        if Config.Weight then
+            if xPlayer.canCarryItem('esrar_islenmis2', 1) then
+                xPlayer.removeInventoryItem('esrar_islenmis', 1)
+                Citizen.Wait(500)
+                xPlayer.addInventoryItem('esrar_islenmis2', 1)
+            else
+                TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+            end
         else
-            TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+            if item.limit ~= -1 and item.count >= item.limit then
+                TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+            else
+                xPlayer.removeInventoryItem('esrar_islenmis', 1)
+                Citizen.Wait(500)
+                xPlayer.addInventoryItem('esrar_islenmis2', 1)
+            end
         end
     else
         TriggerClientEvent('esx:showNotification', src, 'You don\'t have shelled weed!')
@@ -50,16 +81,29 @@ RegisterServerEvent('utx-weed:packweed')
 AddEventHandler('utx-weed:packweed', function()
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
+    local item = xPlayer.getInventoryItem('esrar_paketlenmis')
     if xPlayer.getInventoryItem('esrar_islenmis2').count >= 1 then
         if xPlayer.getInventoryItem('poset').count >= 1 then
-            if xPlayer.canCarryItem('esrar_paketlenmis', 1) then
-                xPlayer.removeInventoryItem('poset', 1)
-                Citizen.Wait(250)
-                xPlayer.removeInventoryItem('esrar_islenmis2', 1)
-                Citizen.Wait(500)
-                xPlayer.addInventoryItem('esrar_paketlenmis', 1)
+            if Config.Weight then
+                if xPlayer.canCarryItem('esrar_paketlenmis', 1) then
+                    xPlayer.removeInventoryItem('poset', 1)
+                    Citizen.Wait(250)
+                    xPlayer.removeInventoryItem('esrar_islenmis2', 1)
+                    Citizen.Wait(500)
+                    xPlayer.addInventoryItem('esrar_paketlenmis', 1)
+                else
+                    TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+                end
             else
-                TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+                if item.limit ~= -1 and item.count >= item.limit then
+                    TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
+                else
+                    xPlayer.removeInventoryItem('poset', 1)
+                    Citizen.Wait(250)
+                    xPlayer.removeInventoryItem('esrar_islenmis2', 1)
+                    Citizen.Wait(500)
+                    xPlayer.addInventoryItem('esrar_paketlenmis', 1)
+                end
             end
         else
             TriggerClientEvent('esx:showNotification', src, 'You don\'t have bag!')
