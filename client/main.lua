@@ -69,7 +69,7 @@ function EsrarSat()
             RequestModel(hash)
             Wait(20)
             end
-            npc = CreatePed("PED_TYPE_CIVFEMALE", 'a_m_m_bevhills_01', satiskordinat.x, satiskordinat.y, satiskordinat.z, satiskordinat.h, true, false)
+            npc = CreatePed("PED_TYPE_CIVFEMALE", 'a_m_m_bevhills_01', satiskordinat.x, satiskordinat.y, satiskordinat.z, satiskordinat.h, false, false)
             PlaceObjectOnGroundProperly(npc)
             SetEntityAsMissionEntity(npc)
             SetBlockingOfNonTemporaryEvents(npc, true)
