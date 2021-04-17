@@ -1,20 +1,20 @@
 Config = {}
 
-Config.SaticiBlip     = true
-Config.PedKonum       = { x = 805.6082, y = 2181.599, z = 52.241, h = 245.0 }
-Config.PedHash        = "csb_chin_goon"
+Config.DealerBlip  = true
+Config.PedCoords   = { x = 805.6082, y = 2181.599, z = 52.241, h = 245.0 }
+Config.PedHash     = "csb_chin_goon"
 
-Config.BlackMoney     = true
-Config.MinEsrarPara   = 375
-Config.MaxEsrarPara   = 1825
+Config.BlackMoney  = true
+Config.MinReward   = 375
+Config.MaxReward   = 1825
 
-Config.EsrarBlip      = true
-Config.EsrarGiris     = {x = 1066.184, y = -3183.45, z = -39.16}
-Config.EsrarCikis     = {x = 1435.609, y = 3657.161, z = 34.371}
-Config.EsrarTopla     = {x = 1057.524, y = -3197.06, z = -39.13}
-Config.EsrarAyiklama  = {x = 1039.199, y = -3205.22, z = -38.16}
-Config.EsrarKurutma   = {x = 1034.647, y = -3205.36, z = -38.17}
-Config.EsrarPaketleme = {x = 1033.953, y = -3203.72, z = -38.17}
+Config.WeedBlip    = true
+Config.WeedEntry   = {x = 1066.184, y = -3183.45, z = -39.16}
+Config.WeedExit    = {x = 1435.609, y = 3657.161, z = 34.371}
+Config.PickWeed    = {x = 1057.524, y = -3197.06, z = -39.13}
+Config.ShellWeed   = {x = 1039.199, y = -3205.22, z = -38.16}
+Config.DryWeed     = {x = 1034.647, y = -3205.36, z = -38.17}
+Config.PackageWeed = {x = 1033.953, y = -3203.72, z = -38.17}
 
 Config.Locations = {
     vector4(-1507.8060302734,-933.76995849609,9.7220973968506,152.74061584473),
