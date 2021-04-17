@@ -1,16 +1,16 @@
 # utx-weed
-Esrar Sistemi
+Weed System
 
 Showcase: https://streamable.com/q8v2sc
 
-Açıklama:
-- Klasik uyuşturucu yapma sistemidir. Videoda görüldüğü gibi işlemleri sırasıyla yaparak esrar elde ediyorsunuz.
-- Esrarı poşetleyebilmek için envanterinizde poşet olması gerekiyor. Bunu markete vb. eklemelisiniz.
-- Boştayken 0.01 ms harcar.
+Explanation:
+- 0.01 ms when not in interaction.
+- It is a classic weed system. As it is seen in the video, you get the weed doing the things in order.
+- You have to have a bag to package the weed. You should add it to a market or something.
 
-Gereksinimler:
+Requirements:
 - https://github.com/esx-community/fivem-ipl
 - https://github.com/ONyambura/mythic_progbar
 - https://github.com/Utinax/reload-skillbar
 
-Kendi yaptığım ve düzenlediğim scriptlerimi paylaştığım discord sunucum: https://discord.gg/kvfWuMj6FN
+My discord server: https://discord.gg/kvfWuMj6FN
