@@ -17,37 +17,37 @@ Citizen.CreateThread(function()
         local sleep = 2000
         local player = PlayerPedId()
         local playercoords = GetEntityCoords(player)
-        local dst = GetDistanceBetweenCoords(playercoords, Config.EsrarCikis.x, Config.EsrarCikis.y, Config.EsrarCikis.z, true)
-        local dst2 = GetDistanceBetweenCoords(playercoords, Config.EsrarGiris.x, Config.EsrarGiris.y, Config.EsrarGiris.z, true)
-        local dst3 = GetDistanceBetweenCoords(playercoords, Config.EsrarTopla.x, Config.EsrarTopla.y, Config.EsrarTopla.z, true)
-        local dst4 = GetDistanceBetweenCoords(playercoords, Config.EsrarAyiklama.x, Config.EsrarAyiklama.y, Config.EsrarAyiklama.z, true)
-        local dst5 = GetDistanceBetweenCoords(playercoords, Config.EsrarKurutma.x, Config.EsrarKurutma.y, Config.EsrarKurutma.z, true)
-        local dst6 = GetDistanceBetweenCoords(playercoords, Config.EsrarPaketleme.x, Config.EsrarPaketleme.y, Config.EsrarPaketleme.z, true)
+        local dst = GetDistanceBetweenCoords(playercoords, Config.WeedExit.x, Config.WeedExit.y, Config.WeedExit.z, true)
+        local dst2 = GetDistanceBetweenCoords(playercoords, Config.WeedEntry.x, Config.WeedEntry.y, Config.WeedEntry.z, true)
+        local dst3 = GetDistanceBetweenCoords(playercoords, Config.PickWeed.x, Config.PickWeed.y, Config.PickWeed.z, true)
+        local dst4 = GetDistanceBetweenCoords(playercoords, Config.WeedOut.x, Config.WeedOut.y, Config.WeedOut.z, true)
+        local dst5 = GetDistanceBetweenCoords(playercoords, Config.DryWeed.x, Config.DryWeed.y, Config.DryWeed.z, true)
+        local dst6 = GetDistanceBetweenCoords(playercoords, Config.PackageWeed.x, Config.PackageWeed.y, Config.PackageWeed.z, true)
         if dst < 10 then
             sleep = 7
-            DrawMarker(2, Config.EsrarCikis.x, Config.EsrarCikis.y, Config.EsrarCikis.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+            DrawMarker(2, Config.WeedExit.x, Config.WeedExit.y, Config.WeedExit.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
             if dst < 1 then
-                DrawText3D(Config.EsrarCikis.x, Config.EsrarCikis.y, Config.EsrarCikis.z + 0.4, '~g~E~s~ - Gizemli Mekana Gir')
+                DrawText3D(Config.WeedExit.x, Config.WeedExit.y, Config.WeedExit.z + 0.4, '~g~E~s~ - Enter The Mysterious Place')
                 if IsControlJustReleased(0, 38) then
-                    SetEntityCoords(player, Config.EsrarGiris.x, Config.EsrarGiris.y, Config.EsrarGiris.z, false, false, false, true)
+                    SetEntityCoords(player, Config.WeedEntry.x, Config.WeedEntry.y, Config.WeedEntry.z, false, false, false, true)
                 end
             end
         end
         if dst2 < 10 then
             sleep = 7
-            DrawMarker(2, Config.EsrarGiris.x, Config.EsrarGiris.y, Config.EsrarGiris.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+            DrawMarker(2, Config.WeedEntry.x, Config.WeedEntry.y, Config.WeedEntry.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
             if dst2 < 1 then
-                DrawText3D(Config.EsrarGiris.x, Config.EsrarGiris.y, Config.EsrarGiris.z + 0.4, '~g~E~s~ - Dısarı Çık')
+                DrawText3D(Config.WeedEntry.x, Config.WeedEntry.y, Config.WeedEntry.z + 0.4, '~g~E~s~ - Go Out')
                 if IsControlJustReleased(0, 38) then
-                    SetEntityCoords(player, Config.EsrarCikis.x, Config.EsrarCikis.y, Config.EsrarCikis.z, false, false, false, true)
+                    SetEntityCoords(player, Config.WeedExit.x, Config.WeedExit.y, Config.WeedExit.z, false, false, false, true)
                 end
             end
         end
         if dst3 < 10 then
             sleep = 7
-            DrawMarker(2, Config.EsrarTopla.x, Config.EsrarTopla.y, Config.EsrarTopla.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+            DrawMarker(2, Config.PickWeed.x, Config.PickWeed.y, Config.PickWeed.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
             if dst3 < 1 then
-                DrawText3D(Config.EsrarTopla.x, Config.EsrarTopla.y, Config.EsrarTopla.z + 0.4, '~g~E~s~ - Esrar Yapragı Topla')
+                DrawText3D(Config.PickWeed.x, Config.PickWeed.y, Config.PickWeed.z + 0.4, '~g~E~s~ - Pick Weed Leaf')
                 if IsControlJustReleased(0, 38) then
                     EsrarTopla()
                 end
@@ -55,9 +55,9 @@ Citizen.CreateThread(function()
         end
         if dst4 < 10 then
             sleep = 7
-            DrawMarker(2, Config.EsrarAyiklama.x, Config.EsrarAyiklama.y, Config.EsrarAyiklama.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+            DrawMarker(2, Config.ShellWeed.x, Config.ShellWeed.y, Config.ShellWeed.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
             if dst4 < 1 then
-                DrawText3D(Config.EsrarAyiklama.x, Config.EsrarAyiklama.y, Config.EsrarAyiklama.z + 0.4, '~g~E~s~ - Esrar Yapragı Ayıkla')
+                DrawText3D(Config.ShellWeed.x, Config.ShellWeed.y, Config.ShellWeed.z + 0.4, '~g~E~s~ - Shell Leaf')
                 if IsControlJustReleased(0, 38) then
                     EsrarIsle()
                 end
@@ -65,9 +65,9 @@ Citizen.CreateThread(function()
         end
         if dst5 < 10 then
             sleep = 7
-            DrawMarker(2, Config.EsrarKurutma.x, Config.EsrarKurutma.y, Config.EsrarKurutma.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+            DrawMarker(2, Config.DryWeed.x, Config.DryWeed.y, Config.DryWeed.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
             if dst5 < 1 then
-                DrawText3D(Config.EsrarKurutma.x, Config.EsrarKurutma.y, Config.EsrarKurutma.z + 0.4, '~g~E~s~ - Esrar Yapragı Kurut')
+                DrawText3D(Config.DryWeed.x, Config.DryWeed.y, Config.DryWeed.z + 0.4, '~g~E~s~ - Dry Weed Leaf')
                 if IsControlJustReleased(0, 38) then
                     EsrarIsle2()
                 end
@@ -75,9 +75,9 @@ Citizen.CreateThread(function()
         end
         if dst6 < 10 then
             sleep = 7
-            DrawMarker(2, Config.EsrarPaketleme.x, Config.EsrarPaketleme.y, Config.EsrarPaketleme.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+            DrawMarker(2, Config.PackageWeed.x, Config.PackageWeed.y, Config.PackageWeed.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4, 0.2, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
             if dst6 < 1 then
-                DrawText3D(Config.EsrarPaketleme.x, Config.EsrarPaketleme.y, Config.EsrarPaketleme.z + 0.4, '~g~E~s~ - Esrar Paketle')
+                DrawText3D(Config.PackageWeed.x, Config.PackageWeed.y, Config.PackageWeed.z + 0.4, '~g~E~s~ - Package Weed')
                 if IsControlJustReleased(0, 38) then
                     EsrarPaketle()
                 end
@@ -93,7 +93,7 @@ function EsrarTopla()
         exports['mythic_progbar']:Progress({
             name = "esrarver",
             duration = 10000,
-            label = 'Esrar yaprağı topluyorsun...',
+            label = 'You are picking weed leaf...',
             useWhileDead = false,
             canCancel = false,
             controlDisables = {
@@ -111,7 +111,7 @@ function EsrarTopla()
             if not cancelled then
                 TriggerServerEvent('utx-weed:giveweed')
                 topluyormu = false
-                ESX.ShowNotification('Başarıyla esrar yaprağı topladın!')
+                ESX.ShowNotification('You have successfully picked weed leaf!')
             else
                 -- Do Something If Action Was Cancelled
             end
@@ -129,26 +129,26 @@ function EsrarIsle()
                 TriggerServerEvent('utx-weed:removeitem', 'esrar_ham', 1)
                 isliyormu = false
                 ClearPedTasksImmediately(player)
-                ESX.ShowNotification('Esrarı ayıklayamadın!')
+                ESX.ShowNotification('You couldn\'t shell the leaf!')
             else
                 local finished2 = exports["reload-skillbar"]:taskBar(4750,math.random(5,15))
                 if finished2 ~= 100 then
                     TriggerServerEvent('utx-weed:removeitem', 'esrar_ham', 1)
                     isliyormu = false
                     ClearPedTasksImmediately(player)
-                    ESX.ShowNotification('Esrarı ayıklayamadın!')
+                    ESX.ShowNotification('You couldn\'t shell the leaf!')
                 else
                     local finished3 = exports["reload-skillbar"]:taskBar(4500,math.random(5,15))
                     if finished3 ~= 100 then
                         TriggerServerEvent('utx-weed:removeitem', 'esrar_ham', 1)
                         isliyormu = false
                         ClearPedTasksImmediately(player)
-                        ESX.ShowNotification('Esrarı ayıklayamadın!')
+                        ESX.ShowNotification('You couldn\'t shell the leaf!')
                     else
                         TriggerServerEvent('utx-weed:processweed')
                         isliyormu = false
                         ClearPedTasks(player)
-                        ESX.ShowNotification('Esrarı başarıyla ayıkladın!')
+                        ESX.ShowNotification('You have successfully shelled the leaf!')
                     end
                 end
             end
@@ -166,26 +166,26 @@ function EsrarIsle2()
                 TriggerServerEvent('utx-weed:removeitem', 'esrar_islenmis', 1)
                 kurutuyormu = false
                 ClearPedTasksImmediately(player)
-                ESX.ShowNotification('Esrarı kurutamadın!')
+                ESX.ShowNotification('You couldn\'t dried the weed!')
             else
                 local finished2 = exports["reload-skillbar"]:taskBar(4250,math.random(5,15))
                 if finished2 ~= 100 then
                     TriggerServerEvent('utx-weed:removeitem', 'esrar_islenmis', 1)
                     kurutuyormu = false
                     ClearPedTasksImmediately(player)
-                    ESX.ShowNotification('Esrarı kurutamadın!')
+                    ESX.ShowNotification('You couldn\'t dried the weed!')
                 else
                     local finished3 = exports["reload-skillbar"]:taskBar(4000,math.random(5,15))
                     if finished3 ~= 100 then
                         TriggerServerEvent('utx-weed:removeitem', 'esrar_islenmis', 1)
                         kurutuyormu = false
                         ClearPedTasksImmediately(player)
-                        ESX.ShowNotification('Esrarı kurutamadın!')
+                        ESX.ShowNotification('You couldn\'t dried the weed!')
                     else
                         TriggerServerEvent('utx-weed:processweed2')
                         kurutuyormu = false
                         ClearPedTasks(player)
-                        ESX.ShowNotification('Esrarı başarıyla kuruttun!')
+                        ESX.ShowNotification('You have successfully dried the weed!')
                     end
                 end
             end
@@ -204,26 +204,26 @@ function EsrarPaketle()
                     TriggerServerEvent('utx-weed:removeitem', 'esrar_islenmis2', 1)
                     paketliyormu = false
                     ClearPedTasksImmediately(player)
-                    ESX.ShowNotification('Esrarı paketleyemedin!')
+                    ESX.ShowNotification('You couldn\'t package the weed!')
                 else
                     local finished2 = exports["reload-skillbar"]:taskBar(3750,math.random(5,15))
                     if finished2 ~= 100 then
                         TriggerServerEvent('utx-weed:removeitem', 'esrar_islenmis2', 1)
                         paketliyormu = false
                         ClearPedTasksImmediately(player)
-                        ESX.ShowNotification('Esrarı paketleyemedin!')
+                        ESX.ShowNotification('You couldn\'t package the weed!')
                     else
                         local finished3 = exports["reload-skillbar"]:taskBar(3500,math.random(5,15))
                         if finished3 ~= 100 then
                             TriggerServerEvent('utx-weed:removeitem', 'esrar_islenmis2', 1)
                             paketliyormu = false
                             ClearPedTasksImmediately(player)
-                            ESX.ShowNotification('Esrarı paketleyemedin!')
+                            ESX.ShowNotification('You couldn\'t package the weed!')
                         else
                             TriggerServerEvent('utx-weed:packweed')
                             paketliyormu = false
                             ClearPedTasks(player)
-                            ESX.ShowNotification('Esrarı başarıyla paketledin!')
+                            ESX.ShowNotification('You have successfully packaged the weed!')
                         end
                     end
                 end
@@ -232,8 +232,8 @@ function EsrarPaketle()
     end
 end
 
-if Config.EsrarBlip then
-    local coords = vector3(Config.EsrarCikis.x, Config.EsrarCikis.y, Config.EsrarCikis.z)
+if Config.WeedBlip then
+    local coords = vector3(Config.WeedExit.x, Config.WeedExit.y, Config.WeedExit.z)
     local blip = AddBlipForCoord(coords)
 
 	SetBlipSprite(blip, 140)
@@ -242,6 +242,6 @@ if Config.EsrarBlip then
 	SetBlipAsShortRange(blip, true)
 
 	BeginTextCommandSetBlipName('STRING')
-	AddTextComponentSubstringPlayerName('Esrar Laboratuvarı')
+	AddTextComponentSubstringPlayerName('Weed Lab')
     EndTextCommandSetBlipName(blip)
 end

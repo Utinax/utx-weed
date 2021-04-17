@@ -17,11 +17,11 @@ Citizen.CreateThread(function()
     RequestModel(hash)
     Wait(20)
     end
-    ped = CreatePed("PED_TYPE_CIVFEMALE", Config.PedHash, Config.PedKonum.x, Config.PedKonum.y, Config.PedKonum.z, Config.PedKonum.h, false, false)
+    ped = CreatePed("PED_TYPE_CIVFEMALE", Config.PedHash, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z, Config.PedCoords.h, false, false)
     SetBlockingOfNonTemporaryEvents(ped, true)
 	FreezeEntityPosition(ped, true)
 	SetEntityInvincible(ped, true)
-	TaskStartScenarioAtPosition(ped, "WORLD_HUMAN_COP_IDLES", Config.PedKonum.x, Config.PedKonum.y, Config.PedKonum.z, Config.PedKonum.h, -1, false, false)
+	TaskStartScenarioAtPosition(ped, "WORLD_HUMAN_COP_IDLES", Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z, Config.PedCoords.h, -1, false, false)
 end)
 
 Citizen.CreateThread(function()
@@ -29,19 +29,19 @@ Citizen.CreateThread(function()
         local sleep = 2000
         local player = PlayerPedId()
         local playercoords = GetEntityCoords(player)
-        local dst = GetDistanceBetweenCoords(playercoords, Config.PedKonum.x, Config.PedKonum.y, Config.PedKonum.z, true)
+        local dst = GetDistanceBetweenCoords(playercoords, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z, true)
         local coords = GetBlipInfoIdCoord(satisblip)
         local dst2 = GetDistanceBetweenCoords(playercoords, coords[1], coords[2], coords[3], true)
         if dst < 3 then
             sleep = 7
-            DrawText3D(Config.PedKonum.x, Config.PedKonum.y, Config.PedKonum.z + 1.0, '~g~E~s~ - Uyusturucu Satıcısı')
+            DrawText3D(Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z + 1.0, '~g~E~s~ - Drug Dealer')
             if IsControlJustReleased(0, 38) then
                 EsrarSat()
             end
         end
         if satiyormu == true and satiskordinat ~= false and dst2 < 2 then
             sleep = 7
-            DrawText3D(coords[1], coords[2], coords[3] + 1.0, '~g~E~s~ - Alıcıyla Konus')
+            DrawText3D(coords[1], coords[2], coords[3] + 1.0, '~g~E~s~ - Talk to Customer')
             if IsControlJustReleased(0, 38) then
                 EsrarSat2()
             end
@@ -63,7 +63,7 @@ function EsrarSat()
 	        }
 	        satisblip = SatisBlipOlustur(satiskordinat.x, satiskordinat.y, satiskordinat.z)
             satiyormu = true
-            ESX.ShowNotification('Esrar [1g] satmaya başladın!')
+            ESX.ShowNotification('You started to sell Weed [1g]!')
             local hash = GetHashKey('a_m_m_bevhills_01')
             while not HasModelLoaded(hash) do
             RequestModel(hash)
@@ -78,7 +78,7 @@ function EsrarSat()
             TaskStartScenarioAtPosition(npc, "CODE_HUMAN_CROSS_ROAD_WAIT", satiskordinat.x, satiskordinat.y, satiskordinat.z, satiskordinat.h, -1, false, false)
         end, "esrar_paketlenmis", 1)
     elseif satiyormu then
-        ESX.ShowNotification('Zaten uyuşturucu satıyorsun!')
+        ESX.ShowNotification('You are already selling drug!')
     end
 end
 
@@ -86,7 +86,7 @@ function EsrarSat2()
     exports['mythic_progbar']:Progress({
         name = "alicikonusma",
         duration = 10000,
-        label = 'Alıcıyla konuşuyorsun...',
+        label = 'You are talking to the customer...',
         useWhileDead = false,
         canCancel = false,
         controlDisables = {
@@ -114,7 +114,7 @@ function EsrarSat2()
             ClearPedTasks(npc)
             SetPedAsNoLongerNeeded(npc)
             TaskWanderStandard(npc, 10.0, 10)
-            ESX.ShowNotification('Başarıyla Esrar [1g] sattın!')
+            ESX.ShowNotification('You have successfully sold Weed [1g]!')
         else
             -- Do Something If Action Was Cancelled
         end
@@ -125,7 +125,7 @@ function SatisBlipOlustur(x,y,z)
 	local blip = AddBlipForCoord(x,y,z)
 	SetBlipSprite(blip, 514)
 	SetBlipColour(blip, 4)
-	AddTextEntry('MYBLIP', "Alıcı")
+	AddTextEntry('MYBLIP', "Customer")
 	BeginTextCommandSetBlipName('MYBLIP')
 	AddTextComponentSubstringPlayerName(name)
 	EndTextCommandSetBlipName(blip)
@@ -144,8 +144,8 @@ Citizen.CreateThread(function()
     end
 end)
 
-if Config.SaticiBlip then
-    local coords = vector3(Config.PedKonum.x, Config.PedKonum.y, Config.PedKonum.z)
+if Config.DealerBlip then
+    local coords = vector3(Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z)
     local blip = AddBlipForCoord(coords)
 
 	SetBlipSprite(blip, 500)
@@ -154,6 +154,6 @@ if Config.SaticiBlip then
 	SetBlipAsShortRange(blip, true)
 
 	BeginTextCommandSetBlipName('STRING')
-	AddTextComponentSubstringPlayerName('Uyuşturucu Satıcısı')
+	AddTextComponentSubstringPlayerName('Drug Dealer')
     EndTextCommandSetBlipName(blip)
 end
