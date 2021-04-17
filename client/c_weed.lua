@@ -20,7 +20,7 @@ Citizen.CreateThread(function()
         local dst = GetDistanceBetweenCoords(playercoords, Config.WeedExit.x, Config.WeedExit.y, Config.WeedExit.z, true)
         local dst2 = GetDistanceBetweenCoords(playercoords, Config.WeedEntry.x, Config.WeedEntry.y, Config.WeedEntry.z, true)
         local dst3 = GetDistanceBetweenCoords(playercoords, Config.PickWeed.x, Config.PickWeed.y, Config.PickWeed.z, true)
-        local dst4 = GetDistanceBetweenCoords(playercoords, Config.WeedOut.x, Config.WeedOut.y, Config.WeedOut.z, true)
+        local dst4 = GetDistanceBetweenCoords(playercoords, Config.ShellWeed.x, Config.ShellWeed.y, Config.ShellWeed.z, true)
         local dst5 = GetDistanceBetweenCoords(playercoords, Config.DryWeed.x, Config.DryWeed.y, Config.DryWeed.z, true)
         local dst6 = GetDistanceBetweenCoords(playercoords, Config.PackageWeed.x, Config.PackageWeed.y, Config.PackageWeed.z, true)
         if dst < 10 then
