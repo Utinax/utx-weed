@@ -8,8 +8,7 @@ ESX.RegisterServerCallback('utx-weed:malzemekontrol', function(source, cb, item,
 	if itemcount >= gereklisayi then
 		cb(true)
 	else
-        activity = 0
-        TriggerClientEvent('esx:showNotification', source, 'Üzerinde yeterli '..itemname..' yok!')
+        TriggerClientEvent('esx:showNotification', source, 'You don\'t have enough '..itemname..'!')
 	end
 end)
 

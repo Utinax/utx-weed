@@ -8,7 +8,7 @@ AddEventHandler('utx-weed:giveweed', function()
     if xPlayer.canCarryItem('esrar_ham', 1) then
         xPlayer.addInventoryItem('esrar_ham', 1)
     else
-        TriggerClientEvent('esx:showNotification', src, 'Üzerinde bunu taşıyacak yer yok!')
+        TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
     end
 end)
 
@@ -22,10 +22,10 @@ AddEventHandler('utx-weed:processweed', function()
             Citizen.Wait(500)
             xPlayer.addInventoryItem('esrar_islenmis', 1)
         else
-            TriggerClientEvent('esx:showNotification', src, 'Üzerinde bunu taşıyacak yer yok!')
+            TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
         end
     else
-        TriggerClientEvent('esx:showNotification', src, 'Üzerinde esrar yaprağı yok!')
+        TriggerClientEvent('esx:showNotification', src, 'You don\'t have weed leaf!')
     end
 end)
 
@@ -39,10 +39,10 @@ AddEventHandler('utx-weed:processweed2', function()
             Citizen.Wait(500)
             xPlayer.addInventoryItem('esrar_islenmis2', 1)
         else
-            TriggerClientEvent('esx:showNotification', src, 'Üzerinde bunu taşıyacak yer yok!')
+            TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
         end
     else
-        TriggerClientEvent('esx:showNotification', src, 'Üzerinde ayıklanmış esrar yok!')
+        TriggerClientEvent('esx:showNotification', src, 'You don\'t have shelled weed!')
     end
 end)
 
@@ -59,13 +59,13 @@ AddEventHandler('utx-weed:packweed', function()
                 Citizen.Wait(500)
                 xPlayer.addInventoryItem('esrar_paketlenmis', 1)
             else
-                TriggerClientEvent('esx:showNotification', src, 'Üzerinde bunu taşıyacak yer yok!')
+                TriggerClientEvent('esx:showNotification', src, 'You don\'t have enough space!')
             end
         else
-            TriggerClientEvent('esx:showNotification', src, 'Üzerinde yeterli poşet yok!')
+            TriggerClientEvent('esx:showNotification', src, 'You don\'t have bag!')
         end
     else
-        TriggerClientEvent('esx:showNotification', src, 'Üzerinde kurutulmuş esrar yok!')
+        TriggerClientEvent('esx:showNotification', src, 'You don\'t have dried weed!')
     end
 end)
 
@@ -73,7 +73,7 @@ RegisterServerEvent('utx-weed:sellweed')
 AddEventHandler('utx-weed:sellweed', function()
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
-    local money = math.random(Config.MinEsrarPara, Config.MaxEsrarPara)
+    local money = math.random(Config.MinReward, Config.MaxReward)
     if xPlayer.getInventoryItem('esrar_paketlenmis').count >= 1 then
         xPlayer.removeInventoryItem('esrar_paketlenmis', 1)
         Citizen.Wait(500)
@@ -83,6 +83,6 @@ AddEventHandler('utx-weed:sellweed', function()
             xPlayer.addMoney(money)
         end
     else
-        TriggerClientEvent('esx:showNotification', src, 'Üzerinde paketlenmiş esrar yok!')
+        TriggerClientEvent('esx:showNotification', src, 'You don\'t have packaged weed!')
     end
 end)
